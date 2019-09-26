@@ -1,0 +1,17 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+name: 'Action SSH Agent'
+description: 'Github Action that registers a SSH key in the SSH Agent'
+author: 'yakuhzi'
+inputs:
+  ssh-public-key:
+    description: 'Public SSH key to register in the SSH Agent'
+    required: true
+  ssh-private-key:
+    description: 'Private SSH key to register in the SSH Agent'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/main.js'
+branding:
+  color: 'yellow'
+  icon: 'package'

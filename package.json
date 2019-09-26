@@ -1,0 +1,36 @@
+{
+  "name": "action-ssh-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "npm-run-all clean lint tsc",
+    "clean": "rimraf dist/*",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "start": "node -r dotenv/config .",
+    "start:dev": "ts-node --project tsconfig.json --files -r tsconfig-paths/register -r dotenv/config src/main/main.ts",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "Yakuhzi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yakuhzi/action-ssh-agent.git"
+  },
+  "dependencies": {
+    "@actions/core": "^1.1.0",
+    "@types/node": "^12.7.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.6.3"
+  }
+}
