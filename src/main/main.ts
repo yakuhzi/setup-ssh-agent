@@ -11,6 +11,13 @@ function run(): void {
     const publicFile = `${sshDir}/id_rsa.pub`
 
     fs.mkdirSync(`${sshDir}`, { recursive: true})
+
+    fs.writeFileSync(`${sshDir}/config`, 'Host Github\n' +
+      '    HostName github.com\n' +
+      '    User git\n' +
+      `    IdentityFile ${sshDir}/id_rsa`
+    )
+
     fs.writeFileSync(
       `${sshDir}/known_hosts`,
       'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0' +
