@@ -12,9 +12,9 @@ function run(): void {
 
     fs.mkdirSync(`${sshDir}`, { recursive: true})
 
-    fs.writeFileSync(`${sshDir}/config`, 'Host *\n' +
-      '    StrictHostKeyChecking no\n' +
-      '    UserKnownHostsFile=/dev/null\n'
+    child_process.execSync(
+      'for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ' +
+      'ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts'
     )
 
     fs.writeFileSync(publicFile, process.env.INPUT_PUBLIC)
