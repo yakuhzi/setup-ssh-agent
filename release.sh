@@ -9,9 +9,9 @@ npm run tsc
 git add -f node_modules dist
 git commit -m "update node_modules & dist"
 git push -f origin releases/v1
-
 git push origin :refs/tags/v1
 git tag -fa v1 -m "Update v1 tag"
 git push origin v1
 git checkout master
 git branch -D releases/v1
+npm install
