@@ -1,6 +1,6 @@
 # Action SSH Agent
 
-A Github Action that registers a SSH key in the SSH Agent.
+A GitHub Action that starts the ssh agent with the provided ssh keys and adds github.com to the known hosts.
 
 Usage
 -------
