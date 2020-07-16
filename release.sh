@@ -5,9 +5,9 @@
 git checkout -b releases/v1
 rm -rf node_modules dist
 npm install
-npm run tsc
+npm run build
 git add -f node_modules dist
-git commit -m "update node_modules & dist"
+git commit -m "Update node_modules & dist"
 git push -f origin releases/v1
 
 git push origin :refs/tags/v1

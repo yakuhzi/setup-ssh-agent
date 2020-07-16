@@ -1,4 +1,3 @@
-# https://help.github.com/en/articles/metadata-syntax-for-github-actions
 name: 'Action SSH Agent'
 description: 'Github Action that registers a SSH key in the SSH Agent'
 author: 'yakuhzi'
