@@ -1,5 +1,5 @@
-import { setFailed } from '@actions/core/lib/core'
-import  * as childProcess from 'child_process'
+import core from '@actions/core'
+import * as childProcess from 'child_process'
 import fs from 'fs'
 
 function run(): void {
@@ -8,22 +8,22 @@ function run(): void {
     const privateFile = `${sshDir}/id_rsa`
     const publicFile = `${sshDir}/id_rsa.pub`
 
-    fs.mkdirSync(`${sshDir}`,  { recursive: true})
+    fs.mkdirSync(`${sshDir}`, { recursive: true })
 
     childProcess.execSync(
       'for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ' +
-      'ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts'
+      'ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts',
     )
 
-    fs.writeFileSync(publicFile, process.env.INPUT_PUBLIC)
-    fs.writeFileSync(privateFile, process.env.INPUT_PRIVATE)
+    fs.writeFileSync(publicFile, process.env.INPUT_PUBLIC!)
+    fs.writeFileSync(privateFile, process.env.INPUT_PRIVATE!)
 
     fs.chmodSync(privateFile, '600')
 
     childProcess.execSync('eval "$(ssh-agent -s)"')
     childProcess.execSync(`ssh-add -K ${sshDir}/id_rsa`)
   } catch (error) {
-    setFailed(error.message)
+    core.setFailed(error.message)
   }
 }
 

@@ -28,7 +28,6 @@
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/prefer-readonly": ["warn"],
-    "@typescript-eslint/camelcase": ["warn", { "properties": "never" }],
     "max-len": ["warn", { "code": 120 }],
     "quotes": ["warn", "single"],
     "semi": ["warn", "never"]
