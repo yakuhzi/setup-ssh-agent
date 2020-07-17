@@ -1,7 +1,7 @@
 {
-  "name": "action-ssh-agent",
-  "version": "1.5.2",
-  "description": "",
+  "name": "setup-ssh-agent",
+  "version": "1.5.3",
+  "description": "A GitHub Action that starts the ssh agent with the provided ssh keys and adds github.com to the known hosts.",
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yakuhzi/action-ssh-agent.git"
+    "url": "https://github.com/yakuhzi/setup-ssh-agent.git"
   },
   "dependencies": {
     "@actions/core": "^1.2.4"
