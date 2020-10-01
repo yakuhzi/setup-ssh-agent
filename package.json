@@ -16,7 +16,7 @@
     "url": "https://github.com/yakuhzi/setup-ssh-agent.git"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.6"
   },
   "devDependencies": {
     "@types/node": "^14.0.23",
