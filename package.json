@@ -1,6 +1,6 @@
 {
   "name": "setup-ssh-agent",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "A GitHub Action that starts the ssh agent with the provided ssh keys and adds github.com to the known hosts.",
   "main": "dist/main.js",
   "scripts": {
@@ -16,16 +16,16 @@
     "url": "https://github.com/yakuhzi/setup-ssh-agent.git"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.6"
   },
   "devDependencies": {
-    "@types/node": "^14.0.23",
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
+    "@types/node": "^14.14.25",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.4.0",
-    "ts-node": "^8.10.2",
+    "eslint": "^7.19.0",
+    "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.1.3"
   }
 }
