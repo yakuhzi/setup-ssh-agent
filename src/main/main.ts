@@ -15,14 +15,14 @@ function run(): void {
       'ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts',
     )
 
-    fs.writeFileSync(publicFile, process.env.INPUT_PUBLIC!)
-    fs.writeFileSync(privateFile, process.env.INPUT_PRIVATE!)
+    fs.writeFileSync(publicFile, core.getInput('ssh-public-key'))
+    fs.writeFileSync(privateFile, core.getInput('ssh-private-key'))
 
     fs.chmodSync(privateFile, '600')
 
     childProcess.execSync('eval "$(ssh-agent -s)"')
     childProcess.execSync(`ssh-add -K ${sshDir}/id_rsa`)
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message)
   }
 }

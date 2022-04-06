@@ -6,10 +6,10 @@ Usage
 -------
 Here is an example how to use this action:
 
-```yaml  
+```yaml
 - name: Set up ssh-agent
-  uses: yakuhzi/action-ssh-agent@v1
+  uses: yakuhzi/action-ssh-agent@v2
   with:
-    public: ${{ secrets.SSH_PUBLIC_KEY }}
-    private: ${{ secrets.SSH_PRIVATE_KEY }}
+    ssh-public-key: ${{ secrets.SSH_PUBLIC_KEY }}
+    ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 ```
