@@ -1,4 +1,5 @@
 import * as core from '@actions/core'
+import { setFailed } from '@actions/core'
 import * as childProcess from 'child_process'
 import fs from 'fs'
 
@@ -22,8 +23,12 @@ function run(): void {
 
     childProcess.execSync('eval "$(ssh-agent -s)"')
     childProcess.execSync(`ssh-add -K ${sshDir}/id_rsa`)
-  } catch (error: any) {
-    core.setFailed(error.message)
+  } catch (error) {
+    if (error instanceof Error) {
+      setFailed(error.message)
+    } else {
+      setFailed(`⚠️ Unexpected error: '${error}'`)
+    }
   }
 }
 
