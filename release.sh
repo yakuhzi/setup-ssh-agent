@@ -13,6 +13,6 @@ git push -f origin releases/v2
 git push origin :refs/tags/v2
 git tag -f v2
 git push origin v2
-git checkout master
+git checkout main
 git branch -D releases/v2
 npm install

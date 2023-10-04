@@ -1,7 +1,7 @@
 {
   "name": "setup-ssh-agent",
-  "version": "2.0.0",
-  "description": "A GitHub Action that starts the ssh agent with the provided ssh keys and adds github.com to the known hosts.",
+  "version": "2.0.3",
+  "description": "A GitHub Action that starts the ssh-agent with the provided ssh keys and adds github.com to the known hosts.",
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
