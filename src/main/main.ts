@@ -5,23 +5,25 @@ import fs from 'fs'
 function run(): void {
   try {
     const sshDir = `${process.env.HOME}/.ssh`
-    const privateFile = `${sshDir}/id_rsa`
-    const publicFile = `${sshDir}/id_rsa.pub`
+
+    const publicKey = core.getInput('ssh-public-key')
+    const privateKey = core.getInput('ssh-private-key')
+    const algorithm = publicKey.split(' ')[0].split('-')[1]
+    const privateFile = `${sshDir}/id_${algorithm}`
+    const publicFile = `${sshDir}/id_${algorithm}.pub`
 
     fs.mkdirSync(`${sshDir}`, { recursive: true })
+    fs.writeFileSync(publicFile, publicKey)
+    fs.writeFileSync(privateFile, privateKey)
+    fs.chmodSync(privateFile, '600')
 
     childProcess.execSync(
       'for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ' +
       'ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts',
     )
 
-    fs.writeFileSync(publicFile, core.getInput('ssh-public-key'))
-    fs.writeFileSync(privateFile, core.getInput('ssh-private-key'))
-
-    fs.chmodSync(privateFile, '600')
-
     childProcess.execSync('eval "$(ssh-agent -s)"')
-    childProcess.execSync(`ssh-add -K ${sshDir}/id_rsa`)
+    childProcess.execSync(`ssh-add --apple-use-keychain ${sshDir}/id_${algorithm}`)
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message)
