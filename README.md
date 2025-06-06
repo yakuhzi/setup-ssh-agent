@@ -2,8 +2,8 @@
 
 A GitHub Action that starts the ssh-agent with the provided SSH keys and adds github.com to the known hosts.
 
-Usage
--------
+## Usage
+
 Here is an example how to use this action:
 
 ```yaml

@@ -1,23 +1,126 @@
+// Updated 30.05.2025
+
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": true,
-    "outDir": "dist/",
-    "baseUrl": "./",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true
+    // Type Checking Options
+    "allowUnreachableCode": null, // Allow unreachable code
+    "allowUnusedLabels": null, // Allow unused labels
+    "alwaysStrict": true, // Ensures that your files are parsed in the ECMAScript strict mode
+    "exactOptionalPropertyTypes": false, // Handle properties on type or interfaces with a `?` prefix more strictly
+    "noFallthroughCasesInSwitch": true, // Raise errors for fallthrough cases in switch statements
+    "noImplicitAny": true, // Raise errors whenever a variable is implicitly assigned the type `any`
+    "noImplicitOverride": true, // Ensure that functions which override include the keyword `override`
+    "noImplicitReturns": true, // Ensure that all code paths in a function return a value
+    "noImplicitThis": true, // Raise errors on `this` expressions with an implied `any` type.
+    "noPropertyAccessFromIndexSignature": true, // Do not allow dot syntax to access fields which are not defined
+    "noUncheckedIndexedAccess": false, // Add `undefined` to any un-declared field in the type
+    "noUnusedLocals": false, // Raise errors on unused local variables
+    "noUnusedParameters": false, // Raise errors on unused parameters in functions
+    "strict": true, // Enables a wide range of type checking behavior
+    "strictBindCallApply": true, // Check that `call`, `bind`, and `apply` are invoked with correct argument
+    "strictBuiltinIteratorReturn": true, // Iterators are instantiated with a type of `undefined` instead of `any`
+    "strictFunctionTypes": true, // Check functions parameters more correctly
+    "strictNullChecks": true, // Raise errors when you use `null` and `undefined` where a concrete value is expected
+    "strictPropertyInitialization": true, // Raise errors when a property was declared but not set in the constructor
+    "useUnknownInCatchVariables": true, // Change the type of the variable in a catch clause from `any` to `unknown`
+
+    // Module Options
+    "allowArbitraryExtensions": false, // Allow arbitrary file extensions in import statements
+    "allowImportingTsExtensions": false, // Allow TypeScript files to import each other
+    "allowUmdGlobalAccess": false, // Allow accessing UMD exports as globals from inside module files
+    "baseUrl": "./", // Sets a base directory from which to resolve bare specifier module names
+    "customConditions": [], // List of conditions to succeed when exporting or importing a field from a package.json
+    "module": "nodenext", // Sets the module system for the program
+    "moduleResolution": "nodenext", // Specifies the module resolution strategy
+    "moduleSuffixes": null, // Override the default list of file name suffixes to search when resolving a module
+    "noResolve": false, // Do not examine the initial set of files for import and reference directives
+    "noUncheckedSideEffectImports": true, // Do not check side effect imports for validity
+    "paths": null, // Re-map imports to lookup locations relative to the baseUrl
+    "resolveJsonModule": true, // Allows importing modules with a .json extension
+    "resolvePackageJsonExports": true, // Consult the exports field of package.json files when reading from a package
+    "resolvePackageJsonImports": true, // Consult the imports field of package.json files when reading from a package
+    "rewriteRelativeImportExtensions": true, // Rewrite file extensions in relative import paths
+    "rootDir": null, // Relative path to the root directory of input files
+    "rootDirs": null, // Use many virtual directories acting as a single root
+    "typeRoots": ["node_modules/@types"], // Only include packages listed for compilation
+    "types": null, // Only include packages listed in the global scope
+
+    // Emit Options
+    "declarationDir": null, // Root directory for where declaration files are emitted
+    "declarationMap": null, // Generates a source map for .d.ts files which map back to the original .ts source file
+    "downlevelIteration": true, // Enable support for a more accurate implementation of modern JavaScript concepts
+    "emitBOM": null, // Controls emitting a byte order mark (BOM) in output files
+    "emitDeclarationOnly": false, // Only emit .d.ts files
+    "importHelpers": true, // Use tslib for helper functions to reduce code duplication
+    "inlineSourceMap": null, // Embed source map content in .js files
+    "inlineSources": null, // Include original .ts content as embedded string in the source map
+    "mapRoot": null, // Specify location for map files for debugger
+    "newLine": "lf", // Specify end of line sequence for emitted files
+    "noEmit": false, // Do not emit output files
+    "noEmitHelpers": false, // Provide your own implementations of helper functions
+    "noEmitOnError": false, // Do not emit files if there are errors
+    "outDir": "./dist", // Directory where .js files will be emitted into
+    "outFile": null, // Concatenate all files into one output file
+    "preserveConstEnums": true, // Do not erase const enum declarations
+    "removeComments": true, // Strip comments when converting to JavaScript
+    "sourceMap": true, // Enable sourcemap generation
+    "sourceRoot": null, // Specify location where debugger should locate TypeScript files
+    "stripInternal": false, // Do not emit declarations for code annotated as @internal
+
+    // JavaScript Support Options
+    "allowJs": false, // Allow JavaScript files to be imported
+    "checkJs": false, // Report errors in JavaScript files
+    "maxNodeModuleJsDepth": 0, // Maximum dependency depth to search under node_modules
+
+    // Editor Support Options
+    "disableSizeLimit": false, // Remove memory limit for large projects
+    "plugins": [], // List of language service plugins
+
+    // Interop Constraints Options
+    "allowSyntheticDefaultImports": true, // Allow default import syntax in modules without default export
+    "erasableSyntaxOnly": null, // Ensure only TypeScript syntax without runtime semantics
+    "esModuleInterop": true, // Treats CommonJS modules like ES6 modules
+    "forceConsistentCasingInFileNames": true, // Error if file inclusion casing differs from disk casing
+    "isolatedDeclarations": null, // Require sufficient annotation on exports
+    "isolatedModules": null, // Warn against code that can`t be interpreted by a single-file transpilation process
+    "preserveSymlinks": false, // Resolve references to modules and packages relative to the symbolic link file
+    "verbatimModuleSyntax": null, // Simplify module syntax preservation
+
+    // Backwards Compatibility Options
+    "noImplicitUseStrict": false, // Disable "use strict" prologue in module files
+    "noStrictGenericChecks": false, // Unify type parameters in comparing generic functions
+    "suppressExcessPropertyErrors": false, // Suppress errors for excess properties
+    "suppressImplicitAnyIndexErrors": false, // Suppress errors for implicit any indexing
+
+    // Language and Environment Options
+    "emitDecoratorMetadata": true, // Emitting type metadata for decorators
+    "experimentalDecorators": true, // Enables decorator support
+    "lib": null, // Specify library files to be included
+    "libReplacement": true, // Enable library file replacements from packages
+    "moduleDetection": "auto", // Determine file as script or module
+    "noLib": false, // Disable inclusion of any library files
+    "target": "esnext", // Set ECMAScript target version
+    "useDefineForClassFields": false, // Migrate to upcoming standard version of class fields
+
+    // Projects Options
+    "composite": false, // Enforces constraints for build tools
+    "disableReferencedProjectLoad": false, // Reduce loading of all projects in memory
+    "disableSolutionSearching": false, // Increase responsiveness in large composite projects
+    "disableSourceOfProjectReferenceRedirect": false, // Disable module boundary changes
+    "incremental": true, // Save information of project graph for compile
+    "tsBuildInfoFile": null, // Specify path for incremental compilation info
+
+    // Output Formatting Options
+    "noErrorTruncation": true, // Do not truncate error messages
+    "preserveWatchOutput": false, // Keep outdated console output in watch mode
+    "pretty": true, // Stylize errors and messages
+
+    // Completeness Options
+    "skipLibCheck": false // Skip type checking of declaration files
   },
-  "include": [
-    "./typings",
-    "./src/"
-  ]
+  "files": null, // Allowlist of files to include in the program
+  "include": null, // Filenames or patterns to include in the program
+  "extends": [], // Path to another configuration file to inherit from
+  "exclude": ["node_modules"], // Filenames or patterns to exclude from the program
+  "references": null // References to structure your TypeScript programs into smaller pieces
 }

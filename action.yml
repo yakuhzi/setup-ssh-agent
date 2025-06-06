@@ -1,6 +1,6 @@
 name: 'Setup SSH Agent'
-description: 'Starts the ssh-agent with the provided SSH keys and adds github.com to the known hosts.'
-author: 'yakuhzi'
+description: 'Starts the ssh-agent with the provided SSH keys and adds github.com to the known hosts'
+author: 'Yakuhzi'
 inputs:
   ssh-public-key:
     description: 'Public SSH key to register in the SSH Agent'
@@ -9,8 +9,8 @@ inputs:
     description: 'Private SSH key to register in the SSH Agent'
     required: true
 runs:
-  using: 'node16'
-  main: 'dist/main.js'
+  using: 'node20'
+  main: 'dist/index.js'
 branding:
   color: 'yellow'
   icon: 'package'
